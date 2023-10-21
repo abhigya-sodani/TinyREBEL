@@ -19,10 +19,10 @@ import sys
 # utils_dir = os.path.join(grandparent_dir, "utils/")
 # sys.path.append(utils_dir)
 
-from llm_vm.utils.keys import *
-from llm_vm.utils.labels import *
-from llm_vm.utils.print_types import *
-from llm_vm.utils.tools import *
+from utils.keys import *
+from utils.labels import *
+from utils.print_types import *
+from utils.tools import *
 from urllib.parse import urlencode
 import urllib.parse as urlparse
 import json
@@ -52,9 +52,9 @@ except:
     )
 
 try:
-    from .utils import *
+    from .utils_func import *
 except:
-    from utils import *
+    from utils_func import *
 
 
 def prepPrintPromptContext(p):
@@ -584,7 +584,7 @@ def rebel_main():
     tools = buildExampleTools()
 
 
-    label = Agent(os.getenv("LLM_VM_OPENAI_API_KEY"), tools, verbose=1)
+    label = Agent("OPENAI KEY HERE", tools, verbose=1)
     conversation_history = []
     last = ""
     while True:
